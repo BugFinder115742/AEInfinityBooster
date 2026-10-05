@@ -74,7 +74,7 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="ae2"
 type="required"
-versionRange="[26.1.9-alpha,)"
+versionRange="[${ae2_version},)"
 ordering="AFTER"
 side="BOTH"
 

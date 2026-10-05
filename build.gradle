@@ -38,7 +38,7 @@ base {
     archivesName = mod_id + "-neoforge"
 }
 
-// Mojang ships Java 25 to end users in 26.1.2, so mods should target Java 25.
+// Mojang ships Java 25 to end users since 26.1, so mods should target Java 25.
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
 neoForge {
@@ -87,9 +87,9 @@ configurations {
 }
 
 dependencies {
-    runtimeOnly "mezz.jei:jei-26.1.2-neoforge:29.6.2.31"
-    compileOnly "org.appliedenergistics:appliedenergistics2:26.1.9-alpha"
-    runtimeOnly "org.appliedenergistics:appliedenergistics2:26.1.9-alpha"
+    runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    compileOnly "org.appliedenergistics:appliedenergistics2:${ae2_version}"
+    runtimeOnly "org.appliedenergistics:appliedenergistics2:${ae2_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -99,6 +99,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             minecraft_version      : minecraft_version,
             minecraft_version_range: minecraft_version_range,
             neo_version            : neo_version,
+            ae2_version            : ae2_version,
             mod_id                 : mod_id,
             mod_name               : mod_name,
             mod_license            : mod_license,
@@ -154,6 +155,6 @@ modrinth {
     gameVersions = [minecraft_version]
     loaders = ["neoforge"]
     dependencies {
-        required.version "ae2", "26.1.9-alpha"
+        required.version "ae2", ae2_version
     }
 }
